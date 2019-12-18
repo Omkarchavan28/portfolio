@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:web_app/nav_buttons.dart';
-import 'package:web_app/nav_head.dart';
-import 'package:web_app/proflie_info.dart';
-import 'package:web_app/responsive_widget.dart';
-import 'package:web_app/social_info.dart';
+import 'package:portfolio_app/nav_buttons.dart';
+import 'package:portfolio_app/nav_head.dart';
+import 'package:portfolio_app/proflie_info.dart';
+import 'package:portfolio_app/responsive_widget.dart';
+import 'package:portfolio_app/social_info.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
-import 'package:web_app/presentation/social_icons_icons.dart';
-import 'package:web_app/responsive_widget.dart';
+import 'package:portfolio_app/presentation/social_icons_icons.dart';
+import 'package:portfolio_app/responsive_widget.dart';
 
 class SocialInfo extends StatelessWidget {
   List<Widget> socialMediaWidgets() {

@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:web_app/responsive_widget.dart';
+import 'package:portfolio_app/responsive_widget.dart';
 
 class ProfileInfo extends StatelessWidget {
   profileImage(context) => Container(
