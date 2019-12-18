@@ -6,16 +6,13 @@ import 'package:web_app/responsive_widget.dart';
 class SocialInfo extends StatelessWidget {
   List<Widget> socialMediaWidgets() {
     return [
-      Container(
-        height: 400,
-        child: RaisedButton.icon(
-          icon: new Icon(SocialIcons.github_circled_alt2),
-          label: Text("Github"),
-          onPressed: () {
-            html.window.open("https://github.com/Omkarchavan28", "GitHub");
-          },
-          color: Colors.black,
-        ),
+      RaisedButton.icon(
+        icon: new Icon(SocialIcons.github_circled_alt2),
+        label: Text("Github"),
+        onPressed: () {
+          html.window.open("https://github.com/Omkarchavan28", "GitHub");
+        },
+        color: Colors.black,
       ),
       RaisedButton.icon(
         icon: new Icon(SocialIcons.twitter),

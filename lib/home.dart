@@ -10,15 +10,15 @@ class HomePage extends StatelessWidget {
 
   List<Widget> navButtons() => [
         NavButton(
-          text: "about",
+          text: "About",
           onPressed: () {},
         ),
         NavButton(
-          text: "work",
+          text: "Projects",
           onPressed: () {},
         ),
         NavButton(
-          text: "contact",
+          text: "Contact",
           onPressed: () {},
         ),
       ];
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
         drawer: ResponsiveWidget.isSmallScreen(context)
             ? Drawer(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: navButtons(),
                 ),
               )
