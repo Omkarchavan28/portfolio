@@ -1,27 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/nav_buttons.dart';
-import 'package:portfolio_app/nav_head.dart';
-import 'package:portfolio_app/proflie_info.dart';
-import 'package:portfolio_app/responsive_widget.dart';
-import 'package:portfolio_app/social_info.dart';
+import 'package:portfolio_app/widgets/navList.dart';
+import 'package:portfolio_app/widgets/nav_head.dart';
+import 'package:portfolio_app/widgets/proflie_info.dart';
+import 'package:portfolio_app/widgets/responsive_widget.dart';
+import 'package:portfolio_app/widgets/social_info.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
-
-  List<Widget> navButtons() => [
-        NavButton(
-          text: "About",
-          onPressed: () {},
-        ),
-        NavButton(
-          text: "Projects",
-          onPressed: () {},
-        ),
-        NavButton(
-          text: "Contact",
-          onPressed: () {},
-        ),
-      ];
+  changePage(BuildContext context, String route) {}
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +24,7 @@ class HomePage extends StatelessWidget {
             ? Drawer(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: navButtons(),
+                  children: navButtons(context),
                 ),
               )
             : null,
@@ -50,8 +36,9 @@ class HomePage extends StatelessWidget {
               largeScreen: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  NavHeader(navButtons: navButtons()),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                  NavHeader(navButtons: navButtons(context)),
+                  if (!ResponsiveWidget.isSmallScreen(context))
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                   ProfileInfo(),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                   SocialInfo(),

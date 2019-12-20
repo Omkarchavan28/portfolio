@@ -1,17 +1,18 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/responsive_widget.dart';
+import 'package:portfolio_app/presentation/hover_effect.dart';
+import 'package:portfolio_app/widgets/responsive_widget.dart';
 
 class ProfileInfo extends StatelessWidget {
   profileImage(context) => Container(
         height: ResponsiveWidget.isSmallScreen(context)
-            ? MediaQuery.of(context).size.height * 0.25
+            ? MediaQuery.of(context).size.height * 0.35
             : MediaQuery.of(context).size.width * 0.25,
         width: ResponsiveWidget.isSmallScreen(context)
-            ? MediaQuery.of(context).size.height * 0.25
+            ? MediaQuery.of(context).size.height * 0.35
             : MediaQuery.of(context).size.width * 0.25,
         decoration: BoxDecoration(
-          backgroundBlendMode: BlendMode.luminosity,
+          // backgroundBlendMode: BlendMode.luminosity,
           color: Colors.amber,
           shape: BoxShape.circle,
           image: DecorationImage(
@@ -81,7 +82,7 @@ class ProfileInfo extends StatelessWidget {
             color: Colors.amber,
             onPressed: () {},
             padding: EdgeInsets.all(10),
-          ),
+          ).showCursorOnHover,
           SizedBox(
             width: 20,
           ),
@@ -96,7 +97,7 @@ class ProfileInfo extends StatelessWidget {
             color: Colors.amber,
             onPressed: () {},
             padding: EdgeInsets.all(10),
-          )
+          ).showCursorOnHover,
         ],
       )
     ],

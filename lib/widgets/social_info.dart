@@ -1,7 +1,8 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/presentation/social_icons_icons.dart';
-import 'package:portfolio_app/responsive_widget.dart';
+import 'package:portfolio_app/presentation/hover_effect.dart';
+import 'package:portfolio_app/widgets/responsive_widget.dart';
 
 class SocialInfo extends StatelessWidget {
   List<Widget> socialMediaWidgets() {
@@ -10,26 +11,26 @@ class SocialInfo extends StatelessWidget {
         icon: new Icon(SocialIcons.github_circled_alt2),
         label: Text("Github"),
         onPressed: () {
-          html.window.open("https://github.com/Omkarchavan28", "GitHub");
+          html.window.open("https://github.com/meomkarchavan", "GitHub");
         },
         color: Colors.black,
-      ),
+      ).showCursorOnHover,
       RaisedButton.icon(
         icon: new Icon(SocialIcons.twitter),
         label: Text("Twitter"),
         onPressed: () {
-          html.window.open("https://twitter.com/meomkarcavan", "Twitter");
+          html.window.open("https://twitter.com/meomkarchavan", "Twitter");
         },
         color: Colors.black,
-      ),
+      ).showCursorOnHover,
       RaisedButton.icon(
         icon: new Icon(SocialIcons.instagram),
         label: Text("Instagram"),
         onPressed: () {
-          html.window.open("https://facebook.com/meomkarchavan", "Fb");
+          html.window.open("https://instagram.com/meomkarchavan", "Instagram");
         },
         color: Colors.black,
-      ),
+      ).showCursorOnHover,
     ];
   }
 
@@ -55,7 +56,7 @@ class SocialInfo extends StatelessWidget {
         ],
       ),
       smallScreen: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           ...socialMediaWidgets(),
           copyRightText(),
