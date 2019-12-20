@@ -3,6 +3,7 @@ import 'package:portfolio_app/presentation/social_icons_icons.dart';
 import 'package:portfolio_app/widgets/navList.dart';
 import 'package:portfolio_app/widgets/nav_head.dart';
 import 'package:portfolio_app/widgets/responsive_widget.dart';
+import 'package:portfolio_app/presentation/hover_effect.dart';
 
 class ProjectPage extends StatelessWidget {
   List<Widget> projectCardList = [
@@ -83,7 +84,7 @@ class ProjectPage extends StatelessWidget {
                         mainAxisSpacing: 8.0,
                         crossAxisSpacing: 8.0,
                         crossAxisCount: ResponsiveWidget.isSmallScreen(context)
-                            ? 1
+                            ? 2
                             : ResponsiveWidget.isMediumScreen(context) ? 2 : 3),
                     children: <Widget>[...projectCardList],
                   ),
@@ -98,7 +99,7 @@ class ProjectPage extends StatelessWidget {
   }
 }
 
-class ProjectCard extends StatelessWidget {
+class ProjectCard extends StatefulWidget {
   const ProjectCard({
     Key key,
     this.title,
@@ -108,75 +109,53 @@ class ProjectCard extends StatelessWidget {
   final title;
   final description;
   final image;
+
+  @override
+  _ProjectCardState createState() => _ProjectCardState();
+}
+
+class _ProjectCardState extends State<ProjectCard> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          flex: ResponsiveWidget.isSmallScreen(context) ? 3 : 2,
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(image),
-                fit: BoxFit.contain,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            ),
+    return Card(
+      color: Colors.black,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Image.asset(widget.image),
           ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(
-            color: Colors.amber,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+            child: Text(
+              widget.title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
 
-                      fontSize: ResponsiveWidget.isSmallScreen(context)
-                          ? 12
-                          : ResponsiveWidget.isMediumScreen(context)
-                              ? 20
-                              : 25, //25
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                  child: Text(
-                    description,
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: ResponsiveWidget.isSmallScreen(context)
-                          ? 15
-                          : ResponsiveWidget.isMediumScreen(context) ? 12 : 15,
-                    ),
-                  ),
-                ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.end,
-                //   children: <Widget>[
-                //     IconButton(
-                //       onPressed: () {},
-                //       icon: new Icon(
-                //         SocialIcons.github_circled_alt2,
-                //         size: 30,
-                //       ),
-                //     ),
-                //   ],
-                // ),
-              ],
+                fontSize: ResponsiveWidget.isSmallScreen(context)
+                    ? 12
+                    : ResponsiveWidget.isMediumScreen(context) ? 20 : 25, //25
+              ),
             ),
           ),
-        )
-      ],
-    );
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+              child: Text(
+                widget.description,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: ResponsiveWidget.isSmallScreen(context)
+                      ? 10
+                      : ResponsiveWidget.isMediumScreen(context) ? 15 : 15,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ).showCursorOnHover;
   }
 }
