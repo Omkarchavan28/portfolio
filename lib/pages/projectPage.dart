@@ -1,47 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:portfolio_app/presentation/copyRightText.dart';
 import 'package:portfolio_app/presentation/social_icons_icons.dart';
 import 'package:portfolio_app/widgets/navList.dart';
 import 'package:portfolio_app/widgets/nav_head.dart';
 import 'package:portfolio_app/widgets/responsive_widget.dart';
 import 'package:portfolio_app/presentation/hover_effect.dart';
+import 'dart:html' as html;
 
 class ProjectPage extends StatelessWidget {
   List<Widget> projectCardList = [
     ProjectCard(
-        title: 'La Casa De Papel Wiki Application',
-        description:
-            'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
-        image: 'icon.jpg'),
-    ProjectCard(
-        title: 'La Casa De Papel Wiki Application',
-        description:
-            'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
-        image: 'icon.jpg'),
-    ProjectCard(
-        title: 'La Casa De Papel Wiki Application',
-        description:
-            'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
-        image: 'icon.jpg'),
-    ProjectCard(
-        title: 'La Casa De Papel Wiki Application',
-        description:
-            'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
-        image: 'icon.jpg'),
-    ProjectCard(
-        title: 'La Casa De Papel Wiki Application',
-        description:
-            'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
-        image: 'icon.jpg'),
-    ProjectCard(
-        title: 'La Casa De Papel Wiki Application',
-        description:
-            'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
-        image: 'icon.jpg'),
-    ProjectCard(
-        title: 'La Casa De Papel Wiki Application',
-        description:
-            'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
-        image: 'icon.jpg'),
+      title: 'La Casa De Papel Wiki Application',
+      description:
+          'La Casa de Papel(Money Heist) Wiki. All Season Episode Infomartion with Cast Details',
+      image: 'icon.jpg',
+      githubLink: 'https://github.com/meomkarchavan/lacasadepapel',
+    ),
   ];
 
   @override
@@ -75,21 +50,13 @@ class ProjectPage extends StatelessWidget {
                 NavHeader(navButtons: navButtons(context)),
                 if (!ResponsiveWidget.isSmallScreen(context))
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-                Container(
-                  // color: Colors.red,
-                  child: GridView(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisSpacing: 8.0,
-                        crossAxisSpacing: 8.0,
-                        crossAxisCount: ResponsiveWidget.isSmallScreen(context)
-                            ? 2
-                            : ResponsiveWidget.isMediumScreen(context) ? 2 : 3),
-                    children: <Widget>[...projectCardList],
-                  ),
+                Wrap(
+                  children: <Widget>[
+                    ...projectCardList,
+                  ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                copyRightText()
               ],
             ),
           ),
@@ -105,11 +72,12 @@ class ProjectCard extends StatefulWidget {
     this.title,
     this.description,
     this.image,
+    this.githubLink,
   }) : super(key: key);
   final title;
   final description;
   final image;
-
+  final githubLink;
   @override
   _ProjectCardState createState() => _ProjectCardState();
 }
@@ -117,45 +85,112 @@ class ProjectCard extends StatefulWidget {
 class _ProjectCardState extends State<ProjectCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.black,
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Image.asset(widget.image),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-            child: Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-
-                fontSize: ResponsiveWidget.isSmallScreen(context)
-                    ? 12
-                    : ResponsiveWidget.isMediumScreen(context) ? 20 : 25, //25
-              ),
-            ),
-          ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-              child: Text(
-                widget.description,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: ResponsiveWidget.isSmallScreen(context)
-                      ? 10
-                      : ResponsiveWidget.isMediumScreen(context) ? 15 : 15,
-                ),
-              ),
-            ),
-          ),
-        ],
+    return Container(
+      margin: EdgeInsets.all(5),
+      constraints: BoxConstraints(
+        maxHeight: 400,
+        maxWidth: 400,
       ),
-    ).showCursorOnHover;
+      color: Colors.amber,
+      child: Card(
+        color: Colors.black,
+        child: Column(
+          children: <Widget>[
+            Flexible(
+              flex: 2,
+              child: Image.asset(widget.image),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Flexible(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                    child: Text(
+                      widget.title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+
+                        fontSize: ResponsiveWidget.isSmallScreen(context)
+                            ? 20
+                            : 25, //25
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Flexible(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                    child: Text(
+                      widget.description,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize:
+                            ResponsiveWidget.isSmallScreen(context) ? 18 : 15,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Flexible(
+                  flex: 2,
+                  child: FlatButton.icon(
+                    icon: Icon(
+                      Icons.share,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    padding: EdgeInsets.all(0),
+                    // shape: CircleBorder(),
+                    color: Colors.black,
+                    label: SizedBox.shrink(),
+                    // focusColor: Colors.black,
+                    // highlightColor: Colors.black,
+                    hoverColor: Colors.amber,
+                    onPressed: () {
+                      // html.window
+                      //     .open("https://github.com/meomkarchavan", "GitHub");
+                    },
+                  ),
+                ),
+                Flexible(
+                  flex: 2,
+                  child: FlatButton.icon(
+                    icon: Icon(
+                      SocialIcons.github_circled_alt2,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    padding: EdgeInsets.all(0),
+                    // shape: CircleBorder(),
+                    color: Colors.black,
+                    label: SizedBox.shrink(),
+                    // focusColor: Colors.black,
+                    // highlightColor: Colors.black,
+                    hoverColor: Colors.amber,
+                    onPressed: () {
+                      html.window.open(widget.githubLink, "GitHub");
+                    },
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ).showCursorOnHover,
+    );
   }
 }
