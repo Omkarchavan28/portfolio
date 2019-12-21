@@ -1,5 +1,6 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/presentation/copyRightText.dart';
 import 'package:portfolio_app/presentation/social_icons_icons.dart';
 import 'package:portfolio_app/presentation/hover_effect.dart';
 import 'package:portfolio_app/widgets/responsive_widget.dart';
@@ -34,13 +35,7 @@ class SocialInfo extends StatelessWidget {
     ];
   }
 
-  Widget copyRightText() => Text(
-        "Omkar Chavan ©️2019",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.grey,
-        ),
-      );
+ 
 
   @override
   Widget build(BuildContext context) {

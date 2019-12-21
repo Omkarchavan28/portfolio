@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/presentation/copyRightText.dart';
 import 'package:portfolio_app/widgets/navList.dart';
 import 'package:portfolio_app/widgets/nav_head.dart';
 import 'package:portfolio_app/widgets/responsive_widget.dart';
@@ -33,9 +34,9 @@ class ContactPage extends StatelessWidget {
                 NavHeader(navButtons: navButtons(context)),
                 if (!ResponsiveWidget.isSmallScreen(context))
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-                                    Center(child: Text('Contact Page')),
-
+                Container(child: Center(child: Text('Contact Page'))),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                copyRightText()
               ],
             ),
           ),

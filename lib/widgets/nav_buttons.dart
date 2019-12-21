@@ -18,7 +18,7 @@ class NavButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 30,
+          fontSize: 25,
         ),
       ),
       onPressed: onPressed,

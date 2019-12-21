@@ -14,6 +14,17 @@ class NavHeader extends StatelessWidget {
             : MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          if (!ResponsiveWidget.isSmallScreen(context))
+            Flexible(
+              child: Text(
+                "Omkar Chavan",
+
+                style: TextStyle(
+                    fontSize: 30.0, fontFamily: "Agne", color: Colors.amber),
+                textAlign: TextAlign.start,
+                // alignment: AlignmentDirectional.topStart // or Alignment.topLeft
+              ),
+            ),
           Spacer(),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
