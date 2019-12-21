@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/presentation/copyRightText.dart';
+import 'package:portfolio_app/presentation/constants.dart';
+import 'package:portfolio_app/widgets/contactForm.dart';
 import 'package:portfolio_app/widgets/navList.dart';
 import 'package:portfolio_app/widgets/nav_head.dart';
 import 'package:portfolio_app/widgets/responsive_widget.dart';
+import 'package:portfolio_app/widgets/social_info.dart';
 
 class ContactPage extends StatelessWidget {
   @override
@@ -13,7 +15,7 @@ class ContactPage extends StatelessWidget {
           ? AppBar(
               elevation: 0.0,
               backgroundColor: Colors.transparent,
-            )
+              title: appBar('Contact Me', false))
           : null,
       drawer: ResponsiveWidget.isSmallScreen(context)
           ? Drawer(
@@ -34,9 +36,26 @@ class ContactPage extends StatelessWidget {
                 NavHeader(navButtons: navButtons(context)),
                 if (!ResponsiveWidget.isSmallScreen(context))
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-                Container(child: Center(child: Text('Contact Page'))),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-                copyRightText()
+                // Container(child: Center(child: Text('Contact Page'))),
+                Text(
+                  'Contact Form',
+                  style: TextStyle(
+                    fontSize: 25,
+                  ),
+                ),
+                MyCustomForm(),
+
+                SizedBox(height: 12.0),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //   children: socialMediaWidgets(),
+                // ),
+                SocialInfo(),
+
+                SizedBox(height: 10),
+                if (ResponsiveWidget.isSmallScreen(context))
+                  copyRightText(),
+                // copyRightText()
               ],
             ),
           ),

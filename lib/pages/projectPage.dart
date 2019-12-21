@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:portfolio_app/presentation/copyRightText.dart';
+import 'package:portfolio_app/presentation/constants.dart';
 import 'package:portfolio_app/presentation/social_icons_icons.dart';
 import 'package:portfolio_app/widgets/navList.dart';
 import 'package:portfolio_app/widgets/nav_head.dart';
@@ -25,11 +25,9 @@ class ProjectPage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
-              centerTitle: true,
-              title: Text('Projects', style: TextStyle(color: Colors.white)),
               elevation: 0.0,
-              backgroundColor: Colors.black,
-            )
+              backgroundColor: Colors.transparent,
+              title: appBar('Projects', false))
           : null,
       drawer: ResponsiveWidget.isSmallScreen(context)
           ? Drawer(
@@ -147,50 +145,42 @@ class _ProjectCardState extends State<ProjectCard> {
               children: <Widget>[
                 Flexible(
                   flex: 2,
-                  child: FlatButton.icon(
+                  child: IconButton(
+                    highlightColor: Colors.black,
+                    hoverColor: Colors.white10,
+                    padding: EdgeInsets.all(3),
                     icon: Icon(
                       Icons.share,
                       color: Colors.white,
                       size: 30,
                     ),
-                    padding: EdgeInsets.all(0),
-                    // shape: CircleBorder(),
-                    color: Colors.black,
-                    label: SizedBox.shrink(),
-                    // focusColor: Colors.black,
-                    // highlightColor: Colors.black,
-                    hoverColor: Colors.amber,
                     onPressed: () {
                       // html.window
                       //     .open("https://github.com/meomkarchavan", "GitHub");
                     },
-                  ),
+                  ).showCursorOnHover,
                 ),
                 Flexible(
                   flex: 2,
-                  child: FlatButton.icon(
+                  child: IconButton(
+                    highlightColor: Colors.black,
+                    hoverColor: Colors.white10,
+                    padding: EdgeInsets.all(3),
                     icon: Icon(
                       SocialIcons.github_circled_alt2,
                       color: Colors.white,
                       size: 30,
                     ),
-                    padding: EdgeInsets.all(0),
-                    // shape: CircleBorder(),
-                    color: Colors.black,
-                    label: SizedBox.shrink(),
-                    // focusColor: Colors.black,
-                    // highlightColor: Colors.black,
-                    hoverColor: Colors.amber,
                     onPressed: () {
                       html.window.open(widget.githubLink, "GitHub");
                     },
-                  ),
+                  ).showCursorOnHover,
                 ),
               ],
             )
           ],
         ),
-      ).showCursorOnHover,
+      ),
     );
   }
 }

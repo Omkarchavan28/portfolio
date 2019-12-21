@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/presentation/constants.dart';
 import 'package:portfolio_app/widgets/navList.dart';
 import 'package:portfolio_app/widgets/nav_head.dart';
 import 'package:portfolio_app/widgets/proflie_info.dart';
@@ -18,6 +19,7 @@ class HomePage extends StatelessWidget {
             ? AppBar(
                 elevation: 0.0,
                 backgroundColor: Colors.transparent,
+                title: appBar('Omkar Chavan', true),
               )
             : null,
         drawer: ResponsiveWidget.isSmallScreen(context)
@@ -40,8 +42,11 @@ class HomePage extends StatelessWidget {
                   if (!ResponsiveWidget.isSmallScreen(context))
                     SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                   ProfileInfo(),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.06),
                   SocialInfo(),
+                  if (ResponsiveWidget.isSmallScreen(context))
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                  if (ResponsiveWidget.isSmallScreen(context)) copyRightText(),
                 ],
               ),
             ),

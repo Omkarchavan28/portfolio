@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/presentation/copyRightText.dart';
+import 'package:portfolio_app/presentation/constants.dart';
 import 'package:portfolio_app/widgets/navList.dart';
 import 'package:portfolio_app/widgets/nav_head.dart';
 import 'package:portfolio_app/widgets/responsive_widget.dart';
@@ -13,6 +13,7 @@ class AboutPage extends StatelessWidget {
           ? AppBar(
               elevation: 0.0,
               backgroundColor: Colors.transparent,
+              title: appBar('About Me', false),
             )
           : null,
       drawer: ResponsiveWidget.isSmallScreen(context)

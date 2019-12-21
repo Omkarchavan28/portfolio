@@ -71,33 +71,41 @@ class ProfileInfo extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          OutlineButton(
-            hoverColor: Colors.amber,
-            borderSide: BorderSide(
-              width: 2.0,
-              color: Colors.amber,
-            ),
-            shape: StadiumBorder(),
-            child: Text("Resume"),
-            color: Colors.amber,
-            onPressed: () {},
-            padding: EdgeInsets.all(10),
-          ).showCursorOnHover,
+          Container(
+            height: 40,
+            width: 130,
+            margin: EdgeInsets.all(8),
+            child: OutlineButton(
+              onPressed: () {},
+              child: Text('Resume'),
+              highlightColor: Colors.black,
+              hoverColor: Colors.amber,
+              borderSide: BorderSide(
+                width: 2.0,
+                color: Colors.amber,
+              ),
+              shape: StadiumBorder(),
+            ).showCursorOnHover,
+          ),
           SizedBox(
             width: 20,
           ),
-          OutlineButton(
-            hoverColor: Colors.amber,
-            borderSide: BorderSide(
-              width: 2.0,
-              color: Colors.amber,
-            ),
-            shape: StadiumBorder(),
-            child: Text("Say Hi!"),
-            color: Colors.amber,
-            onPressed: () {},
-            padding: EdgeInsets.all(10),
-          ).showCursorOnHover,
+          Container(
+            height: 40,
+            width: 130,
+            margin: EdgeInsets.all(8),
+            child: OutlineButton(
+              onPressed: () {},
+              highlightColor: Colors.black,
+              hoverColor: Colors.amber,
+              borderSide: BorderSide(
+                width: 2.0,
+                color: Colors.amber,
+              ),
+              shape: StadiumBorder(),
+              child: Text("Say Hi!"),
+            ).showCursorOnHover,
+          ),
         ],
       )
     ],
