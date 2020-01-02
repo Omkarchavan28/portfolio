@@ -26,8 +26,7 @@ class ContactPage extends StatelessWidget {
             )
           : null,
       body: SingleChildScrollView(
-        child: AnimatedPadding(
-          duration: Duration(seconds: 1),
+        child: Padding(
           padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
           child: ResponsiveWidget(
             largeScreen: Column(

@@ -73,7 +73,6 @@ class ProfileInfo extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 40,
-            width: 130,
             margin: EdgeInsets.all(8),
             child: OutlineButton(
               onPressed: () {},
@@ -92,7 +91,6 @@ class ProfileInfo extends StatelessWidget {
           ),
           Container(
             height: 40,
-            width: 130,
             margin: EdgeInsets.all(8),
             child: OutlineButton(
               onPressed: () {},

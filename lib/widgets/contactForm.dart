@@ -27,7 +27,7 @@ class MyCustomFormState extends State<MyCustomForm> {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        maxHeight: 380,
+        maxHeight: 440,
         maxWidth: 600,
       ),
       child: Center(

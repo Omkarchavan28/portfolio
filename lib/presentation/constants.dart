@@ -83,7 +83,7 @@ const textInputDecoration = InputDecoration(
   filled: true,
   alignLabelWithHint: true,
   focusedErrorBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.all(Radius.circular(20)),
+    borderRadius: BorderRadius.all(Radius.circular(320)),
     borderSide: BorderSide(color: Colors.red, width: 2.0),
   ),
   errorBorder: OutlineInputBorder(
